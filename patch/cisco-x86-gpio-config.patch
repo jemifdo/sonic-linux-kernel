@@ -21,22 +21,20 @@ diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
 index d2453b251..e894cd71d 100644
 --- a/arch/x86/Kconfig
 +++ b/arch/x86/Kconfig
-@@ -1040,6 +1040,15 @@ config SCHED_MC_PRIO
+@@ -342,6 +342,11 @@ config SCHED_MC_PRIO
  
- 	  If unsure say Y here.
- 
-+config ARCH_NR_GPIO
-+	int
+ config ARCH_NR_GPIO
+ 	int
 +	prompt "Maximum number of GPIO's"
-+	default 512
+ 	default 1024 if X86_64
+ 	default 512
 +	help
 +	  Maximum number of GPIOs in the system.
 +
 +	  If unsure, leave the default value.
-+
- config UP_LATE_INIT
+ 
+ config ARCH_SUSPEND_POSSIBLE
  	def_bool y
- 	depends on !SMP && X86_LOCAL_APIC
 -- 
 2.26.2
 
